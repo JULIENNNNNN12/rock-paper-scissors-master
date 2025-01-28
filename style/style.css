@@ -1,0 +1,164 @@
+p ,
+    
+a {
+    box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: 'Barlow Semi Condensed', sans-serif;
+        background: radial-gradient(hsl(214, 47%, 23%), hsl(237, 49%, 15%));
+        color: hsl(229, 25%, 31%);
+        text-align: center;
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        align-items: center;
+        background-attachment: fixed;
+        background-size: cover;
+        background-position: bottom;
+    }
+
+    h1 {
+      
+        font-size: 2rem;
+        padding: 10px;
+        text-align: center; 
+        margin-bottom: 40px;
+        font-size: 40px; 
+        font-weight: 800;
+        color: white;
+        
+         }
+
+         h2 {
+            font-size: 1,75rem;
+            color:white;
+            text-align: center;
+            font-weight: 500;
+            width: 20%;
+            }
+    
+
+     .score {
+                font-size: 1.5rem;
+                margin: 20px 0;
+                color:hsl(229, 64%, 46%)
+            }
+        
+            .score p {
+                font-size: 1.25rem;
+            }
+
+            button {
+
+                margin: 15px;
+                font-size: 1.2rem;
+                border-radius: 5px;
+            
+                }
+
+         .rock, .paper, .scissors {
+         width: 115px;   
+         height: 115px;  
+         border-radius: 100%;  
+         background-color: white;  
+         }
+
+        
+         .rock {
+            border: 12px solid rgb(192, 50, 57);
+            position: absolute;
+            bottom: 50px;
+            left: 20%;
+            transform:translateX(-60%); 
+        }
+
+   
+
+        
+      
+
+      .paper {
+        border: 12px solid rgb(72, 101, 255); 
+        position: absolute;
+        top: 20px;
+        left: 20%; 
+      }
+      
+      .scissors {
+        border: 12px solid rgb(255, 197, 61);  
+        position: absolute;
+        top: 20px;
+        right: 20%;
+      
+      }
+
+     
+
+    .buttons-container {
+        display: flex;
+        justify-content: center;
+        align-items:center ;
+        position: relative;
+        height: 34vh;
+    
+      }
+
+    .result {
+        font-size: 1.5rem;
+        margin-top: 20px;
+        color: white;
+    }
+
+    footer.attribution {
+        font-size: 11px;
+        text-align: center;
+        color: white;
+        bottom: 55px;
+    }
+
+    footer.attribution a {
+        color: hsl(228, 45%, 44%);
+     
+    }
+
+  
+  #rulesContainer {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+
+@keyframes flash {
+    0% { color: #00ff73; }
+    50% { color: #00ff00; }
+    100% { color: #00ff4c; }
+}
+
+@keyframes zoomIn {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+#result {
+    font-size: 1.5em;
+    
+
+}
+
+.win-animation {
+    animation: flash 1s ease-in-out;
+}
+
+.zoom-animation {
+    animation: zoomIn 1s ease-out;
+} 
+  
+ 
+
