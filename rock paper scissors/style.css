@@ -1,0 +1,190 @@
+p ,
+
+body {
+    --color-primary: black ;
+    --color-secondary:#4133ff ;
+    --color-tertiary: aliceblue ;    
+}
+
+h1 {
+    margin: 10px;
+    font-size: 60px;
+    font-weight: 900;
+    color: black;
+}
+
+h2 {
+    margin: 10px;
+    font-size: 30px;
+    font-weight: 600;
+    color:#4133ff;
+
+}
+
+h3 {
+    margin: 10px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #4133ff;
+    font-weight: 700;
+   
+    font-size: 30px;
+}
+
+input[type='radio'] {
+    filter: grayscale(1); 
+}
+
+
+input[type='text'],
+input[type='email'] {
+    width: 100%;
+    margin-right: 10px;
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--color-primary);
+}
+
+input[type='text']::placeholder,
+input[type='email']::placeholder {
+    color: #4133ff;
+    
+}
+
+button {
+    padding: 5px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: #4133ff;
+    background-color: white;
+}
+
+button:hover {
+    color: black ;
+    background-color: #4133ff;
+    cursor: pointer;
+}
+
+button:focus {
+    background-color: var(--color-tertiary);
+    border: 3px solid white;
+    padding: 2px;
+    
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif; 
+    background-color: aliceblue;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    min-width: 200px;
+    margin-bottom: 50px;
+    padding: 50px;
+    text-align: center;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    border-radius: 30px;.zoneSaisie button {
+        width: 20%;
+    }
+    
+    background-color: #4133ff;
+}
+
+footer {
+    position: sticky;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 30px;
+    font-weight: 600;
+    font-size: 17px;
+    color: white;
+    background-color: #4133ff;
+}
+
+
+
+.optionSource {
+    margin: 20px;
+}
+
+.optionSource input[type='radio']:not(:first-child) {
+    margin-left: 20px;
+}
+
+.zoneProposition {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 10px 0 10px 0;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: white;
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.zoneSaisie {
+    display: flex;
+    justify-content: s/*********************************************************************************
+    * 
+    * Ce fichier contient toutes les fonctions nécessaires à l'affichage et à la 
+    * fermeture de la popup de partage. 
+    * 
+    *********************************************************************************/
+   pace-between;
+    width: 100%;
+    margin-bottom: 30px;
+}
+l
+.zoneSaisie button {
+    width: 20%;
+}
+
+.zoneScore {
+    font-size: 20px;
+}
+
+a { 
+color: aliceblue;
+}
+.zoneSaisie button {
+    width: 20%;
+}
+.texte {
+color: black ;
+}
+z {
+color:#4133ff ;
+
+}
+
