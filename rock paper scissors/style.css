@@ -14,6 +14,7 @@ body {
   background-position: bottom;
 }
 
+
 h2 {
   font-size: 1.75rem;
   color: white;
@@ -35,6 +36,7 @@ h4 {
 font-size: 1rem;
 color: hsl(237, 49%, 15%);
 } 
+
 
 td {
   color: navy;
@@ -81,16 +83,7 @@ td span {
   transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-table {
-  background-color: white;
-  width: 24%;
-  border-radius: 15px;
-  border: 3px solid black;
-  text-align: center;
-  margin-top: -170px;
-  margin-left: auto;
-  margin-right: 15px;  
-}
+
 
 .item {
   font-size: 280%;
@@ -99,16 +92,6 @@ table {
   animation: colorChange 4s infinite; 
 }
 
-#progressBarContainer {
-  margin-left: -10%;
-  margin-top: 10px;
-}
-
-#progressBar {
-  width: 200%;
-  height: 18px;
- background-color: white;
-}
 
 #feedbackContainer {
   display: none;
@@ -191,8 +174,8 @@ h5 {
 
 #closeBtn {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 0px;
+  right: 380px;
   background-color: transparent;
   border: 0px solid white;
   color: gray;
@@ -210,37 +193,47 @@ h5 {
 
 #statsBoard {
   position: fixed;
-  top: 200px;
+  top: 500px;
   left: 20px;
   padding: 15px;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: gray;
   font-family: 'Arial', sans-serif;
   font-size: 18px;
-  color: #333;
-  z-index: 1000;
+  font-weight: bold;
+  
 }
 
 #statsBoard td {
-  padding: 8px 10px;
+  padding: 12px 55px;
+  
 }
 
 #statsBoard #wins {
-  color: #4CAF50;
+  color: green;
   font-weight: bold;
+    font-size: 3rem;
+
 }
 
 #statsBoard #losses {
   color: red;
   font-weight: bold;
+    font-size: 3rem;
+
 }
 
-#statsBoard #draws {
-  color: orangered;
-  font-weight: bold;
-  background-color: transparent; 
-  border: none; 
+table {
+  background-color: whitesmoke;
+  width: 24%;
+  border-radius: 15px;
+  border: 3px solid black;
+  text-align: center;
+  margin-top: -170px;
+  margin-left: auto;
+  margin-right: 15px;  
 }
+
 
 
 .item-container {
@@ -332,7 +325,7 @@ button:hover {
 }
 
 .scissors {
-  border: 17px solid rgb(255, 197, 61);
+  border: 17px solid yellow;
   top: 5px;   
   right: -55%;  
  
@@ -359,7 +352,7 @@ button:hover {
 
 .choice-scissors {
   background-color: white; 
-  border: 25px solid rgb(255, 197, 61); 
+  border: 25px solid yellow; 
   box-shadow: inset 5px 6px 10px rgba(0, 0, 0, 0.4); 
 }
 
@@ -433,7 +426,7 @@ button:hover {
   font-size: 16px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;  
+  transition: background-color 0.9s, border-color 0.9s, color 0.3s;  
   margin: 0 10px;
   font-weight: bold;
   position: relative;  
@@ -443,19 +436,19 @@ button:hover {
 
 .triangle-bg {
   position: absolute;
-  top: 53%;
+  top: 17%;
   left: 101%;
   right: 110%;
-  transform: translate(-362%);
+  transform: translate(-50%);
 }
 
 .glow-effect {
-  box-shadow: 0 0 220px 5px rgba(255, 255, 255, 1);
+  box-shadow: 0 0 220px 5px rgba(255, 255, 255, 255);
 }
 
 @keyframes glow {
   0% {
-    box-shadow: 0 0 52px 5px rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 52px 5px rgba(255, 255, 255, 1);
   }
   100% {
     box-shadow: 0 0 220px 5px rgba(255, 255, 255, 1);
@@ -511,139 +504,3 @@ footer.attribution {
   bottom: 30px;
 }
 
-@media (max-width: 768px) {
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-
-  td span {
-    font-size: 3rem; 
-  }
-
-  #playAgainButton {
-    padding: 12px 40px;
-    font-size: 12px;
-    top: 30px;
-  }
-
-  .item {
-  font-size: 2rem;
-  }
-
-  .score-board {
-    width: 90%; 
-    height: 130px;
-    margin-top: 10px;
-  }
-
-  table {
-    width: 30%;
-    margin-top: -120px;
-    height: 100px;
-  }
-
-  .choice-btn {
-    padding: 40px; 
-    margin: 20px;
-  }
-
-  .choice-btn img {
-    width: 50px;
-    height: 50px;
-  }
-
-  #result {
-    font-size: 22px; 
-  }
-
-  #rulesContainer {
-    display: none; 
-    position: fixed;
-    z-index: 1; 
-    left: 0px; 
-    top: 50%;
-    transform: translateY(-45%);
-    width: 100%;
-    height: 70%;
-    background-color: whitesmoke; 
-    justify-content: center;
-    align-items: center;
-    border-radius: 5%;
-  }
-
-  footer {
-    font-size: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.2rem;
-  }
-
-  td span {
-    font-size: 3rem; 
-  }
-
-  #playAgainButton {
-    padding: 12px 40px;
-    font-size: 12px;
-    top: 30px;
-  }
-
-  .item {
-  font-size: 2rem;
-  }
-
-  .score-board {
-    width: 90%; 
-    height: 130px;
-    margin-top: 10px;
-  }
-
-  table {
-    width: 30%;
-    margin-top: -120px;
-    height: 100px;
-  }
-
-  .choice-btn {
-    padding: 40px; 
-    margin: 20px;
-  }
-
-  .choice-btn img {
-    width: 50px;
-    height: 50px;
-  }
-
-  #result {
-    font-size: 22px; 
-  }
-  #rulesContainer {
-    display: none; 
-    position: fixed;
-    z-index: 1; 
-    left: 0px; 
-    top: 50%;
-    transform: translateY(-45%);
-    width: 100%;
-    height: 70%;
-    background-color: whitesmoke; 
-    justify-content: center;
-    align-items: center;
-    border-radius: 5%;
-  }
-  
-  footer {
-    font-size: 10px;
-  }
-}
