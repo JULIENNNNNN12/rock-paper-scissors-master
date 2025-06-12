@@ -3,17 +3,11 @@ let humanScore = localStorage.getItem('humanScore') ? parseInt(localStorage.getI
 let gameStats = JSON.parse(localStorage.getItem('gameStats')) || {
   wins: 0,
   losses: 0,
-  draws: 0,
+  
 };
 
 document.getElementById('humanScore').innerText = humanScore;
 
-const updateProgressBar = () => {
-  const progressBar = document.getElementById('progressBar');
-  progressBar.value = humanScore;
-};
-
-updateProgressBar();
 
 const updateStats = (result) => {
   if (result === 'human') {
@@ -26,8 +20,8 @@ const updateStats = (result) => {
   localStorage.setItem('gameStats', JSON.stringify(gameStats));
   document.getElementById('wins').innerText = gameStats.wins;
   document.getElementById('losses').innerText = gameStats.losses;
-  document.getElementById('draws').innerText = gameStats.draws;
 };
+
 
 const getComputerChoice = () => {
   const choices = ["rock", "paper", "scissors"];
@@ -41,12 +35,12 @@ const getWinner = (humanChoice, computerChoice) => {
   } else if (
     (humanChoice === 'rock' && computerChoice === 'scissors') ||
     (humanChoice === 'scissors' && computerChoice === 'paper') ||
-    (humanChoice === 'paper' && computerChoice === 'rock')
+    (humanChoice === 'paper' && computerChoice === 'rock') 
   ) {
     return 'human';
   } else {
     return 'computer';
-  } 
+  }
 };
 
 const submitFeedback = () => {
@@ -59,7 +53,7 @@ const submitFeedback = () => {
     alert('Merci pour votre retour !');
     document.getElementById('feedbackContainer').style.display = 'none';
   } else {
-    alert('Write something');
+    alert('Something missing');
   }
 };
 
@@ -83,22 +77,18 @@ const updateScore = (winner) => {
  
   const scoreElement = document.getElementById('humanScore');
   
-
   scoreElement.classList.add('bounce');
   
   setTimeout(() => {
     if (winner === 'human') {
       humanScore++;
     } else if (winner === 'computer') {
-      humanScore--;
+      humanScore = Math.max (humanScore - 1, 0) ;
     }
     
     localStorage.setItem('humanScore', humanScore);
     document.getElementById('humanScore').innerText = humanScore;
-    updateProgressBar()
     
-   
-    updateProgressBar();
   }, 300); 
 };
 
@@ -111,10 +101,10 @@ const displayResult = (winner, humanChoice, computerChoice) => {
     button.classList.remove('glow-effect');
   });
 
-  resultElement.classList.remove('win', 'lose', 'draw');
+  resultElement.classList.remove('win', 'lose');
   document.getElementById('humanVisualChoice').classList.remove('glow');
   document.getElementById('computerVisualChoice').classList.remove('glow');
-  playAgainButton.classList.remove('win', 'lose', 'draw');
+  playAgainButton.classList.remove('win', 'lose');
 
   if (winner === 'draw') {
     resultText = `IT'S A DRAW`;
@@ -143,7 +133,7 @@ const resetResultText = () => {
   resultElement.style.display = 'none';
   document.getElementById('humanVisualChoice').classList.remove('glow-effect');
   document.getElementById('computerVisualChoice').classList.remove('glow-effect');
-  document.getElementById('playAgainButton').classList.remove('win', 'lose', 'draw');
+  document.getElementById('playAgainButton').classList.remove('win', 'lose');
 };
 
 document.getElementById('playAgainButton').addEventListener('click', () => {
@@ -153,7 +143,7 @@ document.getElementById('playAgainButton').addEventListener('click', () => {
 });
 
 const showChoiceVisuals = (humanChoice, computerChoice, winner) => {
-  const humanVisualChoice = document.getElementById('humanVisualChoice');
+  const humanVisualChoice = document.getElementById('humanVisualChoice'); 
   const computerVisualChoice = document.getElementById('computerVisualChoice');
 
   humanVisualChoice.className = 'choice-btn';
@@ -208,6 +198,7 @@ const playGame = (humanChoice) => {
   showChoiceVisuals(humanChoice, computerChoice, winner);
 
   updateScore(winner);
+  
 
   document.getElementById('playAgainButton').style.display = 'inline-block';
 
@@ -217,6 +208,32 @@ const playGame = (humanChoice) => {
 
 const hideResetButton = () => {
   document.getElementById('resetButton').style.display = 'none';
+
+}; 
+
+const resetGame = () => {
+ 
+  humanScore = 0;
+  document.getElementById('humanScore').innerText = humanScore;
+
+  gameStats = {
+    wins: 0,
+    losses: 0,
+  };
+  localStorage.setItem('gameStats', JSON.stringify(gameStats));
+
+  document.getElementById('wins').innerText = gameStats.wins;
+  document.getElementById('losses').innerText = gameStats.losses;
+
+
+  document.querySelector('.buttons-container').style.display = 'block';
+  document.querySelector('.choices-container').style.display = 'none';
+  document.getElementById('chooseText').style.display = 'block';
+  document.querySelector('h2').style.display = 'block';
+  document.getElementById('playAgainButton').style.display = 'none';
+
+
+  resetResultText();
 };
 
 const onChoiceClick = () => {
@@ -241,42 +258,8 @@ const playAgain = () => {
   document.querySelector('.choices-container').style.display = 'none';
   document.getElementById('chooseText').style.display = 'block';
   document.querySelector('h2').style.display = 'block';
-
-  
   document.getElementById('playAgainButton').style.display = 'none';
   document.getElementById('resetButton').style.display = 'inline-block';
-};
-
-const resetGame = () => {
- 
-  humanScore = 0;
-  document.getElementById('humanScore').innerText = humanScore;
-
-  gameStats = {
-    wins: 0,
-    losses: 0,
-    draws: 0,
-  };
-  localStorage.setItem('gameStats', JSON.stringify(gameStats));
-
-  document.getElementById('wins').innerText = gameStats.wins;
-  document.getElementById('losses').innerText = gameStats.losses;
-  document.getElementById('draws').innerText = gameStats.draws;
-
-  updateProgressBar();
-
-  document.querySelector('.buttons-container').style.display = 'block';
-  document.querySelector('.choices-container').style.display = 'none';
-
-  document.getElementById('chooseText').style.display = 'block';
-  document.querySelector('h2').style.display = 'block';
-
-  document.getElementById('playAgainButton').style.display = 'none';
-  document.getElementById('resetButton').style.display = 'none';
-
-  localStorage.removeItem('humanScore');
-
-  resetResultText();
 };
 
 function showRules() {
