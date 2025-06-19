@@ -41,8 +41,17 @@ $donnees_brutes = str_replace("NULL", "", $donnees_brutes);
             $salaries[] = $donnees_salarie;
         }
     }
-    
-    $titre = 'Liste des Salariés';
+
+$salaries_modifies = [];
+if (file_exists('donnees_modifiees.json')) {
+    $salaries_modifies = json_decode(file_get_contents('donnees_modifiees.json'), true);
+    foreach ($salaries_modifies as $index => $salarie_modifie) {
+        $salaries[$index] = $salarie_modifie;
+    }
+}
+
+
+$titre = 'Liste des Salariés';
     ?>
     
     <!DOCTYPE html>
@@ -166,21 +175,35 @@ $donnees_brutes = str_replace("NULL", "", $donnees_brutes);
             editModal.show();
         });
     });
-    
+
     editForm.addEventListener('submit', function (e) {
         e.preventDefault();
         const formData = new FormData(editForm);
         const values = Object.fromEntries(formData.entries());
         const rowIndex = editForm.dataset.rowIndex;
-        const targetRow = document.querySelector(`tr[data-index="${rowIndex}"]`);
-        if (!targetRow) return;
-    
-        headers.forEach((key, idx) => {
-            targetRow.children[idx + 1].textContent = values[key] || '';
+
+        fetch('save.php', {
+            method: 'POST',
+            body: JSON.stringify({ index: rowIndex, data: values }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => {
+            if (response.ok) {
+                const targetRow = document.querySelector(`tr[data-index="${rowIndex}"]`);
+                if (!targetRow) return;
+
+                headers.forEach((key, idx) => {
+                    targetRow.children[idx + 1].textContent = values[key] || '';
+                });
+
+                editModal.hide();
+            } else {
+                alert("Erreur lors de l'enregistrement.");
+            }
         });
-    
-        editModal.hide();
     });
+
     </script>
     
     </body>
